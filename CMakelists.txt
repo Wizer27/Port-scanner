@@ -10,6 +10,7 @@ find_package(cpr CONFIG REQUIRED)
 
 add_executable(port-scanner
     main.cpp
+    ports.cpp
 )
 
 target_link_libraries(port-scanner PRIVATE

@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <string>
 #include <CLI/CLI.hpp>
+#include <unordered_map>
+#include "ports.h"
 
 using namespace std;
 
@@ -46,7 +48,10 @@ bool is_port_open(const string& ip,int port){
     return ok;
 }
 
+
+
 int main(int argc,char** argv){
+    
     CLI::App app("port_scan");
     std::string domain;
 
@@ -64,7 +69,7 @@ int main(int argc,char** argv){
     const int port_amount = 65700;
 
     std::cout << "SCAN STARTED" << std::endl;
-    
+
     for(int i  = 0;i <= port_amount;i++){
 
         bool result_scan = is_port_open(ip_link,i);
