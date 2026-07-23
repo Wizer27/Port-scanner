@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.20)
+
+project(port-scanner)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+find_package(CLI11 CONFIG REQUIRED)
+find_package(cpr CONFIG REQUIRED)
+
+add_executable(port-scanner
+    main.cpp
+)
+
+target_link_libraries(port-scanner PRIVATE
+    CLI11::CLI11
+    cpr::cpr
+)
