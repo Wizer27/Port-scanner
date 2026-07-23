@@ -68,14 +68,18 @@ int main(int argc,char** argv){
     
     const int port_amount = 65700;
 
-    std::cout << "SCAN STARTED" << std::endl;
+    std::cout << "SCAN STARTED\n" << std::endl;
 
     for(int i  = 0;i <= port_amount;i++){
 
         bool result_scan = is_port_open(ip_link,i);
         if(result_scan){
-            std::cout << "PORT" << std::endl;
-            std::cout << i << std::endl;
+            auto port_info = PORTS.find(i);
+            if(port_info != PORTS.end()){
+                std::cout << port_info -> first << "    " << port_info -> second << std::endl; 
+            }else{
+                std::cout << port_info -> first << "    " << "Unknown service" << std::endl;
+            }
         }
     };
 
